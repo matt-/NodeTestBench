@@ -13,7 +13,8 @@ module.exports = (function () {
 		// this should be tainted
 		var input = req.query.name;
 		var data = "{name:'" + input + "'}"
-		var data = eval(data);
+		var noop = eval("1 + 1");
+		//var data = eval(data);
 		res.send('<xmp>' + data);
     });
 
