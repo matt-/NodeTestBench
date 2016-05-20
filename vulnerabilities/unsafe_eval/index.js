@@ -13,8 +13,8 @@ module.exports = (function () {
 		// this should be tainted
 		var input = req.query.name;
 		var data = "{name:'" + input + "'}";
-		e = eval;
-		var data = e(data);
+		e = eval("x = process.pid;");
+		//var data = e(data);
 		res.send('<xmp>' + data);
     });
 
