@@ -10,11 +10,11 @@ module.exports = (function () {
     });
 
     api.get('/unsafe', function (req, res) {
+    		query = req.query;
 		// this should be tainted
-		var input = req.query.name;
+		var input = query.name;
 		var data = "{name:'" + input + "'}";
-		e = eval("x = process.pid;");
-		//var data = e(data);
+		var data = eval(data);
 		res.send('<xmp>' + data);
     });
 
